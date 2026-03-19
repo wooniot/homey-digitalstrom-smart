@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "Blink a device (Pro)",
+    "nl": "Laat apparaat knipperen (Pro)",
+    "de": "Gerät blinken lassen (Pro)"
+  },
+  "titleFormatted": {
+    "en": "Blink device [[dsuid]]",
+    "nl": "Laat apparaat [[dsuid]] knipperen",
+    "de": "Gerät [[dsuid]] blinken lassen"
+  },
+  "args": [
+    { "type": "text", "name": "dsuid", "title": { "en": "Device dsUID" } }
+  ]
+}

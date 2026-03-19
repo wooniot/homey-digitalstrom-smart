@@ -1,0 +1,19 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Presence Mode",
+    "nl": "Aanwezigheidsmodus",
+    "de": "Anwesenheitsmodus"
+  },
+  "values": [
+    { "id": "present", "title": { "en": "Present", "nl": "Aanwezig", "de": "Anwesend" } },
+    { "id": "absent", "title": { "en": "Absent", "nl": "Afwezig", "de": "Abwesend" } },
+    { "id": "sleeping", "title": { "en": "Sleeping", "nl": "Slapen", "de": "Schlafen" } },
+    { "id": "wakeup", "title": { "en": "Wakeup", "nl": "Wakker", "de": "Aufwachen" } },
+    { "id": "standby", "title": { "en": "Standby", "nl": "Standby", "de": "Standby" } },
+    { "id": "deep_off", "title": { "en": "Deep Off", "nl": "Uit", "de": "Tief Aus" } }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker"
+}

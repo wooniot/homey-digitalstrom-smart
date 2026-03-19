@@ -1,0 +1,52 @@
+{
+  "id": "nl.wooniot.digitalstrom",
+  "version": "1.0.0",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "platforms": ["local"],
+  "name": {
+    "en": "Digital Strom Smart",
+    "nl": "Digital Strom Smart",
+    "de": "Digital Strom Smart"
+  },
+  "description": {
+    "en": "Control your Digital Strom smart home from Homey Pro",
+    "nl": "Bedien je Digital Strom smart home vanuit Homey Pro",
+    "de": "Steuere dein Digital Strom Smart Home von Homey Pro"
+  },
+  "category": ["lights", "climate"],
+  "brandColor": "#00A651",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Woon IoT BV",
+    "email": "info@wooniot.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Woon IoT BV",
+        "email": "info@wooniot.nl"
+      }
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/wooniot/homey-digitalstrom-smart/issues"
+  },
+  "homepage": "https://wooniot.nl/homey",
+  "support": "mailto:info@wooniot.nl",
+  "permissions": [],
+  "api": {
+    "setLicense": {
+      "method": "PUT",
+      "path": "/license"
+    },
+    "getLicense": {
+      "method": "GET",
+      "path": "/license"
+    }
+  }
+}

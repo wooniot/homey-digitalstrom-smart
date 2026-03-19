@@ -1,0 +1,17 @@
+{
+  "title": {
+    "en": "Activate a scene",
+    "nl": "Activeer een scene",
+    "de": "Szene aktivieren"
+  },
+  "titleFormatted": {
+    "en": "Activate scene [[scene]] in zone [[zone]] group [[group]]",
+    "nl": "Activeer scene [[scene]] in zone [[zone]] groep [[group]]",
+    "de": "Szene [[scene]] in Zone [[zone]] Gruppe [[group]] aktivieren"
+  },
+  "args": [
+    { "type": "number", "name": "zone", "title": { "en": "Zone ID" }, "min": 1, "max": 65534, "step": 1 },
+    { "type": "number", "name": "group", "title": { "en": "Group" }, "min": 1, "max": 48, "step": 1 },
+    { "type": "number", "name": "scene", "title": { "en": "Scene number" }, "min": 0, "max": 127, "step": 1 }
+  ]
+}
