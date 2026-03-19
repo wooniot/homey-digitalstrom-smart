@@ -1,0 +1,319 @@
+{
+  "id": "nl.wooniot.digitalstrom",
+  "version": "1.0.0",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "platforms": ["local"],
+  "name": {
+    "en": "Digital Strom Smart",
+    "nl": "Digital Strom Smart",
+    "de": "Digital Strom Smart"
+  },
+  "description": {
+    "en": "Control your Digital Strom smart home from Homey Pro",
+    "nl": "Bedien je Digital Strom smart home vanuit Homey Pro",
+    "de": "Steuere dein Digital Strom Smart Home von Homey Pro"
+  },
+  "category": ["lights", "climate"],
+  "brandColor": "#00A651",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Woon IoT BV",
+    "email": "info@wooniot.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Woon IoT BV",
+        "email": "info@wooniot.nl"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "wooniot"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/wooniot/homey-digitalstrom-smart/issues"
+  },
+  "homepage": "https://wooniot.nl/homey",
+  "support": "mailto:info@wooniot.nl",
+  "permissions": [],
+  "api": {
+    "setLicense": {
+      "method": "PUT",
+      "path": "/license"
+    },
+    "getLicense": {
+      "method": "GET",
+      "path": "/license"
+    }
+  },
+  "flow": {
+    "actions": [
+      {
+        "id": "call_scene",
+        "title": {
+          "en": "Activate a scene",
+          "nl": "Activeer een scene",
+          "de": "Szene aktivieren"
+        },
+        "titleFormatted": {
+          "en": "Activate scene [[scene]] in zone [[zone]] group [[group]]",
+          "nl": "Activeer scene [[scene]] in zone [[zone]] groep [[group]]",
+          "de": "Szene [[scene]] in Zone [[zone]] Gruppe [[group]] aktivieren"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "zone",
+            "title": { "en": "Zone ID", "nl": "Zone ID", "de": "Zone ID" },
+            "min": 1,
+            "max": 65534,
+            "step": 1
+          },
+          {
+            "type": "number",
+            "name": "group",
+            "title": { "en": "Group", "nl": "Groep", "de": "Gruppe" },
+            "min": 1,
+            "max": 48,
+            "step": 1
+          },
+          {
+            "type": "number",
+            "name": "scene",
+            "title": { "en": "Scene number", "nl": "Scene nummer", "de": "Szene Nummer" },
+            "min": 0,
+            "max": 127,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "blink_device",
+        "title": {
+          "en": "Blink a device (Pro)",
+          "nl": "Laat apparaat knipperen (Pro)",
+          "de": "Gerät blinken lassen (Pro)"
+        },
+        "titleFormatted": {
+          "en": "Blink device [[dsuid]]",
+          "nl": "Laat apparaat [[dsuid]] knipperen",
+          "de": "Gerät [[dsuid]] blinken lassen"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "dsuid",
+            "title": { "en": "Device dsUID", "nl": "Apparaat dsUID", "de": "Gerät dsUID" }
+          }
+        ]
+      },
+      {
+        "id": "save_scene",
+        "title": {
+          "en": "Save current values as scene (Pro)",
+          "nl": "Sla huidige waarden op als scene (Pro)",
+          "de": "Aktuelle Werte als Szene speichern (Pro)"
+        },
+        "titleFormatted": {
+          "en": "Save scene [[scene]] in zone [[zone]] group [[group]]",
+          "nl": "Sla scene [[scene]] op in zone [[zone]] groep [[group]]",
+          "de": "Szene [[scene]] in Zone [[zone]] Gruppe [[group]] speichern"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "zone",
+            "title": { "en": "Zone ID", "nl": "Zone ID", "de": "Zone ID" },
+            "min": 1,
+            "max": 65534,
+            "step": 1
+          },
+          {
+            "type": "number",
+            "name": "group",
+            "title": { "en": "Group", "nl": "Groep", "de": "Gruppe" },
+            "min": 1,
+            "max": 48,
+            "step": 1
+          },
+          {
+            "type": "number",
+            "name": "scene",
+            "title": { "en": "Scene number", "nl": "Scene nummer", "de": "Szene Nummer" },
+            "min": 0,
+            "max": 127,
+            "step": 1
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "digitalstrom-light",
+      "name": { "en": "Digital Strom Light", "nl": "Digital Strom Lamp", "de": "Digital Strom Licht" },
+      "class": "light",
+      "capabilities": ["onoff", "dim"],
+      "capabilitiesOptions": {
+        "dim": { "min": 0, "max": 1, "step": 0.01 }
+      },
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-light/assets/images/small.png",
+        "large": "/drivers/digitalstrom-light/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-cover",
+      "name": { "en": "Digital Strom Cover", "nl": "Digital Strom Zonwering", "de": "Digital Strom Beschattung" },
+      "class": "curtain",
+      "capabilities": ["windowcoverings_set", "windowcoverings_state"],
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-cover/assets/images/small.png",
+        "large": "/drivers/digitalstrom-cover/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-switch",
+      "name": { "en": "Digital Strom Switch", "nl": "Digital Strom Schakelaar", "de": "Digital Strom Schalter" },
+      "class": "socket",
+      "capabilities": ["onoff"],
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-switch/assets/images/small.png",
+        "large": "/drivers/digitalstrom-switch/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-sensor",
+      "name": { "en": "Digital Strom Sensor", "nl": "Digital Strom Sensor", "de": "Digital Strom Sensor" },
+      "class": "sensor",
+      "capabilities": ["alarm_generic"],
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-sensor/assets/images/small.png",
+        "large": "/drivers/digitalstrom-sensor/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-meter",
+      "name": { "en": "Digital Strom Meter", "nl": "Digital Strom Meter", "de": "Digital Strom Messgerät" },
+      "class": "sensor",
+      "capabilities": ["measure_power", "meter_power", "measure_temperature"],
+      "capabilitiesOptions": {
+        "measure_temperature": { "title": { "en": "Zone Temperature" } }
+      },
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-meter/assets/images/small.png",
+        "large": "/drivers/digitalstrom-meter/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-climate",
+      "name": { "en": "Digital Strom Climate (Pro)", "nl": "Digital Strom Klimaat (Pro)", "de": "Digital Strom Klima (Pro)" },
+      "class": "thermostat",
+      "capabilities": ["target_temperature", "measure_temperature"],
+      "capabilitiesOptions": {
+        "target_temperature": { "min": 5, "max": 30, "step": 0.5 }
+      },
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-climate/assets/images/small.png",
+        "large": "/drivers/digitalstrom-climate/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-weather",
+      "name": { "en": "Digital Strom Weather (Pro)", "nl": "Digital Strom Weer (Pro)", "de": "Digital Strom Wetter (Pro)" },
+      "class": "sensor",
+      "capabilities": ["measure_temperature", "measure_humidity", "measure_wind_strength"],
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-weather/assets/images/small.png",
+        "large": "/drivers/digitalstrom-weather/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-alarm",
+      "name": { "en": "Digital Strom Alarm (Pro)", "nl": "Digital Strom Alarm (Pro)", "de": "Digital Strom Alarm (Pro)" },
+      "class": "homealarm",
+      "capabilities": ["homealarm_state", "onoff"],
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-alarm/assets/images/small.png",
+        "large": "/drivers/digitalstrom-alarm/assets/images/large.png"
+      }
+    },
+    {
+      "id": "digitalstrom-presence",
+      "name": { "en": "Digital Strom Presence (Pro)", "nl": "Digital Strom Aanwezigheid (Pro)", "de": "Digital Strom Anwesenheit (Pro)" },
+      "class": "other",
+      "capabilities": ["ds_presence_mode"],
+      "pair": [
+        { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+        { "id": "add_devices", "template": "add_devices" }
+      ],
+      "images": {
+        "small": "/drivers/digitalstrom-presence/assets/images/small.png",
+        "large": "/drivers/digitalstrom-presence/assets/images/large.png"
+      }
+    }
+  ],
+  "capabilities": {
+    "ds_presence_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Presence Mode",
+        "nl": "Aanwezigheidsmodus",
+        "de": "Anwesenheitsmodus"
+      },
+      "values": [
+        { "id": "present", "title": { "en": "Present", "nl": "Aanwezig", "de": "Anwesend" } },
+        { "id": "absent", "title": { "en": "Absent", "nl": "Afwezig", "de": "Abwesend" } },
+        { "id": "sleeping", "title": { "en": "Sleeping", "nl": "Slapen", "de": "Schlafen" } },
+        { "id": "wakeup", "title": { "en": "Wakeup", "nl": "Wakker", "de": "Aufwachen" } },
+        { "id": "standby", "title": { "en": "Standby", "nl": "Standby", "de": "Standby" } },
+        { "id": "deep_off", "title": { "en": "Deep Off", "nl": "Uit", "de": "Tief Aus" } }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    }
+  }
+}

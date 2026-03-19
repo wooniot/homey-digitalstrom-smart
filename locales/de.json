@@ -1,0 +1,21 @@
+{
+  "pair": {
+    "list_devices": {
+      "title": "Geräte auswählen",
+      "subtitle": "Wähle die Digital Strom Geräte aus, die du hinzufügen möchtest"
+    },
+    "add_devices": {
+      "title": "Geräte hinzufügen"
+    }
+  },
+  "settings": {
+    "license_key": "Pro Lizenzschlüssel",
+    "license_key_hint": "Gib deinen Digital Strom Smart Pro Lizenzschlüssel ein, um Klimasteuerung, Anwesenheitsmodi, Wettersensoren, Alarme und mehr freizuschalten.",
+    "license_valid": "Lizenz gültig",
+    "license_invalid": "Lizenz ungültig oder abgelaufen",
+    "license_free": "Free-Tier aktiv",
+    "save": "Speichern",
+    "dss_host": "dSS Host",
+    "dss_port": "dSS Port"
+  }
+}

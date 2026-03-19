@@ -1,0 +1,21 @@
+{
+  "pair": {
+    "list_devices": {
+      "title": "Selecteer apparaten",
+      "subtitle": "Selecteer de Digital Strom apparaten die je wilt toevoegen"
+    },
+    "add_devices": {
+      "title": "Apparaten toevoegen"
+    }
+  },
+  "settings": {
+    "license_key": "Pro Licentiesleutel",
+    "license_key_hint": "Voer je Digital Strom Smart Pro licentiesleutel in om klimaatregeling, aanwezigheidsmodi, weersensoren, alarmen en meer te ontgrendelen.",
+    "license_valid": "Licentie geldig",
+    "license_invalid": "Licentie ongeldig of verlopen",
+    "license_free": "Free tier actief",
+    "save": "Opslaan",
+    "dss_host": "dSS Host",
+    "dss_port": "dSS Poort"
+  }
+}

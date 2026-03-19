@@ -1,0 +1,21 @@
+{
+  "pair": {
+    "list_devices": {
+      "title": "Select devices",
+      "subtitle": "Select the Digital Strom devices you want to add"
+    },
+    "add_devices": {
+      "title": "Add devices"
+    }
+  },
+  "settings": {
+    "license_key": "Pro License Key",
+    "license_key_hint": "Enter your Digital Strom Smart Pro license key to unlock climate control, presence modes, weather sensors, alarms, and more.",
+    "license_valid": "License valid",
+    "license_invalid": "License invalid or expired",
+    "license_free": "Free tier active",
+    "save": "Save",
+    "dss_host": "dSS Host",
+    "dss_port": "dSS Port"
+  }
+}
